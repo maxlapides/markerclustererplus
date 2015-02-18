@@ -258,18 +258,9 @@ ClusterIcon.prototype.show = function () {
     }
     img += "'>";
     this.div_.innerHTML = "<div style='" +
-        "position: absolute;" +
-        "top: " + this.anchorText_[0] + "px;" +
-        "left: " + this.anchorText_[1] + "px;" +
-        "color: " + this.textColor_ + ";" +
-        "font-size: " + this.textSize_ + "px;" +
-        "font-family: " + this.fontFamily_ + ";" +
-        "font-weight: " + this.fontWeight_ + ";" +
-        "font-style: " + this.fontStyle_ + ";" +
-        "text-decoration: " + this.textDecoration_ + ";" +
-        "text-align: center;" +
-        "width: " + this.width_ + "px;" +
-        "line-height:" + this.height_ + "px;" +
+        "width:" + (this.width_ - 24)  + "px;" +
+        "height:" + (this.height_ - 24) + "px;" +
+        "line-height:" + (this.height_ - 24) + "px;" +
         "'>" + (this.cluster_.hideLabel_ ? ' ' : this.sums_.text) + "</div>";
     if (typeof this.sums_.title === "undefined" || this.sums_.title === "") {
       this.div_.title = this.cluster_.getMarkerClusterer().getTitle();
