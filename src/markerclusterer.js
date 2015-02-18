@@ -253,11 +253,8 @@ ClusterIcon.prototype.show = function () {
       img += "clip: rect(" + (-1 * spriteV) + "px, " + ((-1 * spriteH) + this.width_) + "px, " +
           ((-1 * spriteV) + this.height_) + "px, " + (-1 * spriteH) + "px);";
     }
-    else {
-        img += "width: " + this.width_ + "px;" + "height: " + this.height_ + "px;";
-    }
     img += "'>";
-    this.div_.innerHTML = "<div style='" +
+    this.div_.innerHTML = img + "<div style='" +
         "position: absolute;" +
         "top: " + this.anchorText_[0] + "px;" +
         "left: " + this.anchorText_[1] + "px;" +
@@ -509,6 +506,7 @@ Cluster.prototype.addMarker = function (marker) {
     marker.setMap(null);
   }
 
+  this.updateIcon_();
   return true;
 };
 
@@ -567,9 +565,14 @@ Cluster.prototype.updateIcon_ = function () {
  * @return {boolean} True if the marker has already been added.
  */
 Cluster.prototype.isMarkerAlreadyAdded_ = function (marker) {
-  for (var i = 0, n = this.markers_.length; i < n; i++) {
-    if (marker === this.markers_[i]) {
-      return true;
+  var i;
+  if (this.markers_.indexOf) {
+    return this.markers_.indexOf(marker) !== -1;
+  } else {
+    for (i = 0; i < this.markers_.length; i++) {
+      if (marker === this.markers_[i]) {
+        return true;
+      }
     }
   }
   return false;
@@ -696,7 +699,7 @@ function MarkerClusterer(map, opt_markers, opt_options) {
   if (opt_options.enableRetinaIcons !== undefined) {
     this.enableRetinaIcons_ = opt_options.enableRetinaIcons;
   }
-  this.hideLabel_ = false;
+  this.hideLabel_ = false
   if (opt_options.hideLabel !== undefined) {
     this.hideLabel_ = opt_options.hideLabel;
   }
@@ -804,7 +807,7 @@ MarkerClusterer.prototype.setupStyles_ = function () {
   for (i = 0; i < this.imageSizes_.length; i++) {
     size = this.imageSizes_[i];
     this.styles_.push({
-      //url: this.imagePath_ + (i + 1) + "." + this.imageExtension_,
+      url: this.imagePath_ + (i + 1) + "." + this.imageExtension_,
       height: size,
       width: size
     });
@@ -1561,10 +1564,6 @@ MarkerClusterer.prototype.createClusters_ = function (iFirst) {
      * @event
      */
     google.maps.event.trigger(this, "clusteringend", this);
-
-    for (i = 0; i < this.clusters_.length; i++) {
-      this.clusters_[i].updateIcon_();
-    }
   }
 };
 
@@ -1669,5 +1668,5 @@ if (typeof String.prototype.trim !== 'function') {
    */
   String.prototype.trim = function() {
     return this.replace(/^\s+|\s+$/g, '');
-  };
+  }
 }
