@@ -258,9 +258,9 @@ ClusterIcon.prototype.show = function () {
     }
     img += "'>";
     this.div_.innerHTML = "<div style='" +
-        "width:" + this.width_  + "px;" +
-        "height:" + this.height_ + "px;" +
-        "line-height:" + this.height_ + "px;" +
+        "width:" + (this.width_ - 30) + "px;" +
+        "height:" + (this.height_ - 30) + "px;" +
+        "line-height:" + (this.height_ - 30) + "px;" +
         "'>" + (this.cluster_.hideLabel_ ? ' ' : this.sums_.text) + "</div>";
     if (typeof this.sums_.title === "undefined" || this.sums_.title === "") {
       this.div_.title = this.cluster_.getMarkerClusterer().getTitle();
@@ -287,7 +287,7 @@ ClusterIcon.prototype.useStyle = function (sums) {
   index = Math.min(this.styles_.length - 1, index);
   var style = this.styles_[index];
   this.url_ = style.url;
-  this.height_ = 20 + ((clusterSize-1) * 12);
+  this.height_ = 56 + ((clusterSize-1) * 12);
   this.width_ = this.height_;
   this.anchorText_ = style.anchorText || [0, 0];
   this.anchorIcon_ = style.anchorIcon || [parseInt(this.height_ / 2, 10), parseInt(this.width_ / 2, 10)];
