@@ -258,9 +258,9 @@ ClusterIcon.prototype.show = function () {
     }
     img += "'>";
     this.div_.innerHTML = "<div style='" +
-        "width:" + (this.width_ - 24)  + "px;" +
-        "height:" + (this.height_ - 24) + "px;" +
-        "line-height:" + (this.height_ - 24) + "px;" +
+        "width:" + this.width_  + "px;" +
+        "height:" + this.height_ + "px;" +
+        "line-height:" + this.height_ + "px;" +
         "'>" + (this.cluster_.hideLabel_ ? ' ' : this.sums_.text) + "</div>";
     if (typeof this.sums_.title === "undefined" || this.sums_.title === "") {
       this.div_.title = this.cluster_.getMarkerClusterer().getTitle();
@@ -279,13 +279,16 @@ ClusterIcon.prototype.show = function () {
  * @param {ClusterIconInfo} sums The icon label text and styles index.
  */
 ClusterIcon.prototype.useStyle = function (sums) {
+
+  var clusterSize = sums.text.length || 1;
+
   this.sums_ = sums;
   var index = Math.max(0, sums.index - 1);
   index = Math.min(this.styles_.length - 1, index);
   var style = this.styles_[index];
   this.url_ = style.url;
-  this.height_ = style.height;
-  this.width_ = style.width;
+  this.height_ = 20 + ((clusterSize-1) * 12);
+  this.width_ = this.height_;
   this.anchorText_ = style.anchorText || [0, 0];
   this.anchorIcon_ = style.anchorIcon || [parseInt(this.height_ / 2, 10), parseInt(this.width_ / 2, 10)];
   this.textColor_ = style.textColor || "black";
