@@ -257,7 +257,7 @@ ClusterIcon.prototype.show = function () {
         img += "width: " + this.width_ + "px;" + "height: " + this.height_ + "px;";
     }
     img += "'>";
-    this.div_.innerHTML = img + "<div style='" +
+    this.div_.innerHTML = "<div style='" +
         "position: absolute;" +
         "top: " + this.anchorText_[0] + "px;" +
         "left: " + this.anchorText_[1] + "px;" +
@@ -803,13 +803,11 @@ MarkerClusterer.prototype.setupStyles_ = function () {
 
   for (i = 0; i < this.imageSizes_.length; i++) {
     size = this.imageSizes_[i];
-    /*
     this.styles_.push({
-      url: this.imagePath_ + (i + 1) + "." + this.imageExtension_,
+      //url: this.imagePath_ + (i + 1) + "." + this.imageExtension_,
       height: size,
       width: size
     });
-    */
   }
 };
 
@@ -1673,4 +1671,3 @@ if (typeof String.prototype.trim !== 'function') {
     return this.replace(/^\s+|\s+$/g, '');
   };
 }
-
