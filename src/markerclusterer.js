@@ -803,11 +803,13 @@ MarkerClusterer.prototype.setupStyles_ = function () {
 
   for (i = 0; i < this.imageSizes_.length; i++) {
     size = this.imageSizes_[i];
+    /*
     this.styles_.push({
       url: this.imagePath_ + (i + 1) + "." + this.imageExtension_,
       height: size,
       width: size
     });
+    */
   }
 };
 
