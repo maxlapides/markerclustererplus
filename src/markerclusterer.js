@@ -283,6 +283,10 @@ ClusterIcon.prototype.useStyle = function (sums) {
   var clusterSize = sums.text.length || 1;
 
   this.sums_ = sums;
+  // comma separate the number
+  // http://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript
+  this.sums_.text = this.sums_.text.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
   var index = Math.max(0, sums.index - 1);
   index = Math.min(this.styles_.length - 1, index);
   var style = this.styles_[index];
