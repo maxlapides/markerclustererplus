@@ -253,7 +253,7 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 1,
 		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
+		"syntaxCheckerStyle": 0
 		},
 	"\/src\/markerclusterer.map.js": {
 		"fileType": 64,
@@ -283,6 +283,17 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/src\/markerclusterer_packed.js",
 		"outputAbbreviatedPath": "\/src\/min\/markerclusterer_packed-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
+		},
+	"\/src\/min\/markerclusterer-min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/src\/min\/markerclusterer-min.js",
+		"outputAbbreviatedPath": "\/src\/min\/min\/markerclusterer-min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
